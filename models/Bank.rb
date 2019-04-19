@@ -1,7 +1,5 @@
 require'pry'
 
-# read about writing to a file in ruby https://stackoverflow.com/questions/2777802/how-to-write-to-file-in-ruby
-
 
 
 class Bank
