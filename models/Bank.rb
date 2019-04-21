@@ -1,21 +1,20 @@
 require'pry'
 
 
-
 class Bank
     attr_accessor :checking, :savings
     def initialize
-        @checking = File.open("checking.txt").read.to_i
-        @savings = File.open("savings.txt").read.to_i
+        @checking = File.open("./models/checking.txt").read.to_i
+        @savings = File.open("./models/savings.txt").read.to_i
     end
 
     def withdraw(input,amount)
         if input == "savings"
             @savings -= amount
-            File.open("savings.txt", 'w') { |file| file.write(@savings) }
+            File.open("./models/savings.txt", 'w') { |file| file.write(@savings) }
         elsif input == "checking"
             @checking -= amount
-            File.open("checking.txt", 'w') { |file| file.write(@checking) }
+            File.open("./models/checking.txt", 'w') { |file| file.write(@checking) }
         end
 
     end
