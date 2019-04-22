@@ -33,7 +33,7 @@ end
 post '/amountWithdraw' do
     bank = Bank.new
     bank.transfer("checking",params[:amount].to_i)
-
+end
 
 
 get "/amountDeposit" do
