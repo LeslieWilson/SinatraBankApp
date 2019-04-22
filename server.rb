@@ -32,7 +32,7 @@ get "/amountWithdraw" do
 end
 post '/amountWithdraw' do
     bank = Bank.new
-    bank.transfer("checking",params[:amount].to_i)
+    bank.withdraw("checking",params[:amount].to_i)
 end
 
 
@@ -41,7 +41,7 @@ get "/amountDeposit" do
 end
 post '/amountDeposit' do
     bank = Bank.new
-    bank.transfer("checking",params[:amount].to_i)
+    bank.deposit("checking",params[:amount].to_i)
  end
 
 
@@ -61,7 +61,7 @@ get "/amountDepositSav" do
 end
 post '/amountDepositSav' do
     bank = Bank.new
-    bank.transfer("checking",params[:amount].to_i)
+    bank.deposit("savings",params[:amount].to_i)
  end
 
 
@@ -71,7 +71,7 @@ get "/amountWithdrawSav" do
 end
 post '/amountWithdrawSav' do
     bank = Bank.new
-    bank.transfer("checking",params[:amount].to_i)
+    bank.withdraw("savings",params[:amount].to_i)
  end
 
 
@@ -81,5 +81,5 @@ get "/amountTransferSav" do
 end
 post '/amountTransferSav' do
     bank = Bank.new
-    bank.transfer("checking",params[:amount].to_i)
+    bank.transfer("savings",params[:amount].to_i)
  end
