@@ -1,15 +1,17 @@
 require 'spec_helper'
 
-feature "view teams index" do
-
-  # As a Kickball Fan
-  # I want to view a page with the names of each team
-  # So that I can learn which teams are in the league
-
-  # * [ ] When I visit /teams I should be able to see list of all the team names
-
-  scenario "user visits /teams path" do
-    visit "/teams"
-    expect(page).to have_content("Simpson Slammers")
+feature "view bank homepage" do
+  scenario "user visits / path" do
+    visit "/"
+    expect(page).to have_content("Leslie United DollarStorage")
   end
+
+  feature "bank homepage has 2 buttons" do
+      scenario "user views 2 buttons at / path " do
+          visit "/"
+          expect(page).to have_selector("input[type=submit][value= 'Checking']")
 end
+
+RSpec::Matchers.define :have_submit_button do |value|
+    match do |actual|
+        expect(actual).to have_selector("input [type=submit][value]")
