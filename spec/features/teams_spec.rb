@@ -92,6 +92,8 @@ feature "view /" do
     end
 end
 
+# Verify that buttons exist
+
   feature "view /amountTransferSav" do
       scenario "/amountTransferSav has a submit button " do
           visit "/amountTransferSav"
@@ -127,6 +129,7 @@ feature "view /amountWithdrawSav" do
 end
 end
 
+
 feature "view /amountDepositSav" do
     scenario "/amountDepositSav has a submit button" do
         visit "/amountDepositSav"
@@ -140,6 +143,8 @@ feature "view /amountDepositSav" do
         expect(page).to have_selector("input[type=submit]")
 end
 end
+
+
 
 
 
