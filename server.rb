@@ -1,10 +1,7 @@
 require './models/Bank.rb'
-
 require 'sinatra'
 require "pry" if development? || test?
 require "sinatra/reloader" if development?
-
-
 set :bind, '0.0.0.0'
 
 get "/" do
@@ -25,8 +22,6 @@ get "/savings" do
     @savings = bank.savings
     erb :savings
 end
-
-
 get "/amountWithdraw" do
     bank = Bank.new
     @checking = bank.checking
@@ -48,9 +43,6 @@ post '/amountDeposit' do
     bank = Bank.new
     bank.deposit("checking",params[:amount].to_i)
  end
-
-
-
 get "/amountTransferCheck" do
     bank = Bank.new
     @checking = bank.checking
@@ -60,7 +52,6 @@ post '/amountTransferCheck' do
     bank = Bank.new
     bank.transfer("checking",params[:amount].to_i)
 end
-
 get "/amountDepositSav" do
     bank = Bank.new
     @savings = bank.savings
@@ -70,9 +61,6 @@ post '/amountDepositSav' do
     bank = Bank.new
     bank.deposit("savings",params[:amount].to_i)
 end
-
-
-
 get "/amountWithdrawSav" do
     bank = Bank.new
     @savings = bank.savings
@@ -82,9 +70,6 @@ post '/amountWithdrawSav' do
     bank = Bank.new
     bank.withdraw("savings",params[:amount].to_i)
 end
-
-
-
 get "/amountTransferSav" do
     bank = Bank.new
     @savings = bank.savings
